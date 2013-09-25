@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 
 typedef id(^MapBlock)(id object);
+typedef id(^MapBlockWithIndex)(id object, NSUInteger idx, BOOL *stop);
 
 @interface NSArray (Map)
 
-- (NSArray *)map:(MapBlock)block;
+- (NSArray *)arrayByMappingObjectsUsingBlock:(MapBlock)block;
+- (NSArray *)arrayByMappingObjectsUsingBlockWithIndex:(MapBlockWithIndex)blockWithIndex;
 
 @end
